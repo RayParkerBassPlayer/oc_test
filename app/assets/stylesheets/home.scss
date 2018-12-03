@@ -1,3 +1,27 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#shingle-name{
+  font-size: 200%;
+  font-weight: bold;
+}
+
+#main-image{
+  width: 768px;
+  height: 423px;
+  margin: 10px 0 10px 0;
+  float: left;
+}
+
+#swatches{
+  clear: both;
+}
+
+#swatches .selected{
+  border: 3px solid pink;
+}
+
+#swatches :hover{
+  border: 3px solid hotpink;
+}

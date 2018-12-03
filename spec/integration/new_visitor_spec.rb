@@ -3,7 +3,7 @@ require "rails_helper"
 describe "New Visitor Expectations" do
   let(:page_title) {"Owens Corning Developer Test"}
 
-  it "welcomes a new visitor" do
+  it "welcomes a new visitor", :vcr do
     visit root_path
     expect(page.title).to eq(page_title)
   end

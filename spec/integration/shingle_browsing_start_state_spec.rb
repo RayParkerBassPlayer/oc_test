@@ -8,21 +8,17 @@ describe "Shingle Browsing Start State", :vcr do
   let(:shingle_values) {shingle_select_values.collect(&:last).sort}
   let(:shingle_dropdown_selector) {"#shingle-names"}
 
-  it "shows the default shingle name" do
-    visit root_path
+  before(:each) {visit root_path}
 
+  it "shows the default shingle name" do
     expect(find("#shingle-name").text).to eq shingles.first["proper_name"]
   end
 
   it "shows the default shingle name in the dropdown selector" do
-    visit root_path
-
     expect(find(shingle_dropdown_selector).value).to eq shingle_values.first
   end
 
   it "shows the default shingle large image" do
-    visit root_path
-
     within("#main-image") do
       shingle_color = ShingleConnection.shingle_colors(shingles.first).first["house_thumb_image_url"]
 
@@ -31,8 +27,6 @@ describe "Shingle Browsing Start State", :vcr do
   end
 
   it "shows the color swatches with the default shingle selected" do
-    visit root_path
-
     within("#swatches") do
       shingle_color = ShingleConnection.shingle_colors(shingles.first).first["swatch_160x160_url"]
 

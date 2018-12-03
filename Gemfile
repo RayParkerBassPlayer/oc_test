@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem "haml-rails"
+gem "httparty"
 
 group :test do
   gem "rspec-rails"
@@ -44,6 +45,8 @@ group :test do
   gem "capybara"
   gem "poltergeist"
   gem "phantomjs"
+  gem "vcr"
+  gem "webmock"
 end
 
 group :development do

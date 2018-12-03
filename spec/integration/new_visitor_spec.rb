@@ -1,15 +1,15 @@
 require "rails_helper"
 
 describe "New Visitor Expectations" do
-  let(:welcome_message) {"Welcome to the Owens Corning developer test."}
+  let(:page_title) {"Owens Corning Developer Test"}
 
   it "welcomes a new visitor" do
     visit root_path
-    expect(page).to have_content(welcome_message)
+    expect(page.title).to eq(page_title)
   end
 
-  it "welcomes a new visitor in a JS-enabled test browser", :js do
+  it "welcomes a new visitor in a JS-enabled test browser", :js, :vcr do
     visit root_path
-    expect(page).to have_content(welcome_message)
+    expect(page.title).to eq(page_title)
   end
 end

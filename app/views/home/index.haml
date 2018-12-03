@@ -1,0 +1,2 @@
+%form
+  = select_tag("shingle-names", options_for_select(@shingles.collect{|shingle| [shingle["proper_name"], shingle["uid"]]}))

@@ -9,6 +9,12 @@ describe "Shingle Browsing Start State", :vcr do
   let(:shingle_dropdown_selector) {"#shingle-names"}
 
   describe "page start state" do
+    it "shows the default shingle name" do
+      visit root_path
+      
+      expect(find("#shingle-name").text).to eq shingles.first["proper_name"]
+    end
+    
     it "shows the default shingle name in the dropdown selector" do
       visit root_path
 

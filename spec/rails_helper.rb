@@ -10,6 +10,8 @@ require 'rspec/rails'
 require "capybara/rails"
 require "capybara/poltergeist"
 require "site_spec_utils"
+require "vcr"
+
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
@@ -70,5 +72,24 @@ RSpec.configure do |config|
   config.before(:suite) do
     DatabaseCleaner.clean!
     load(File.join(Rails.root, "spec/seeds.rb"))
+  end
+end
+
+
+VCR.configure do |config|
+  config.cassette_library_dir = Rails.root.join("spec", "vcr")
+  config.stub_with :webmock
+
+  # This would be used in a for-real situation.  Currently this is throwing a deprecation warning and this isn't really
+  # needed for the developer test, so commenting this out instead of fixing it.
+  # config.default_cassette_options = {:re_record_interval => 30.days}
+end
+
+RSpec.configure do |config|
+  config.around(:each, :vcr) do |example|
+    name = example.metadata[:full_description].split(/\s+/, 2).join("/").underscore.gsub(/[^\w\/]+/, "_")
+    options = example.metadata.slice(:record, :match_requests_on).except(:example_group)
+
+    VCR.use_cassette(name, options) { example.call }
   end
 end

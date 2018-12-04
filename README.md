@@ -1,24 +1,19 @@
-# README
+# Owens Corning Developer Test
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Notes
+The majority of time spend was on Rev 0 stuff:  setting up the app, getting the testing environment set up, etc.
+Not a lot of time was spent on testing the resulting JS interface, but here are some highlights:
+* The lower level stuff was mainly test-driven after some R & D
+* The basic page was test-driven until Javascript got involved and then it was pure R&D type development.  Some spec were sketched in and would be completed before handing in the feature.
+* Implementation was driven toward a known preference for REST preference at OC with a nod toward some of the bonus questions.
+* MySql was used for the unused database.  No Postgres install on my laptop at present.
+* Headless JS testing was set up using Selenium/Webkit.  A note below will hep with setup if you're not set up for this.
 
-Things you may want to cover:
 
-* Ruby version
+### Setup 
+The chromedriver needs to be installed to be able to run the tests.  If you're running homebrew, the following is all that you should have to do outside of a normal Rails app installation. 
+```bash
+brew cask install chromedriver
+``` 
+ 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

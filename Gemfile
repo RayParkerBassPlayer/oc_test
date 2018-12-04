@@ -38,13 +38,13 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem "haml-rails"
 gem "httparty"
+gem "jquery-rails"
 
 group :test do
   gem "rspec-rails"
   gem "database_cleaner"
   gem "capybara"
-  gem "poltergeist"
-  gem "phantomjs"
+  gem "capybara-selenium"
   gem "vcr"
   gem "webmock"
   gem "launchy"

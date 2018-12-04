@@ -8,9 +8,9 @@ require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 require "capybara/rails"
-require "capybara/poltergeist"
 require "site_spec_utils"
 require "vcr"
+require "selenium/webdriver"
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -28,7 +28,23 @@ require "vcr"
 # Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 
 DatabaseCleaner.clean_with :truncation
-Capybara.javascript_driver = :poltergeist
+# Capybara.javascript_driver = :poltergeist
+# Capybara.javascript_driver = :selenium_chrome_headless
+
+Capybara.register_driver :chrome do |app|
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
+end
+
+Capybara.register_driver :headless_chrome do |app|
+  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+      chromeOptions: { args: %w(headless disable-gpu) }
+  )
+
+  Capybara::Selenium::Driver.new(app, browser: :chrome, desired_capabilities: capabilities)
+end
+
+Capybara.javascript_driver = :headless_chrome
+
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
@@ -75,14 +91,26 @@ RSpec.configure do |config|
   end
 end
 
-
 VCR.configure do |config|
   config.cassette_library_dir = Rails.root.join("spec", "vcr")
   config.stub_with :webmock
 
   # This would be used in a for-real situation.  Currently this is throwing a deprecation warning and this isn't really
   # needed for the developer test, so commenting this out instead of fixing it.
-  # config.default_cassette_options = {:re_record_interval => 30.days}
+  config.default_cassette_options = {:re_record_interval => 30.days, :record => :new_episodes}
+
+  # Ignore http://127.0.0.1:9515/shutdown and similar requests for the WebKit server that'll run after tests are done.
+  config.ignore_request do |request|
+    skip = false
+
+    %w[/shutdown /session].each do |path|
+      if URI(request.uri).path.match(path)
+        skip = true
+      end
+    end
+
+    skip
+  end
 end
 
 RSpec.configure do |config|

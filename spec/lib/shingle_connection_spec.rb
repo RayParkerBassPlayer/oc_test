@@ -13,4 +13,6 @@ describe ShingleConnection, :vcr do
 
     expect(response).to be_a(Array)
   end
+
+  it "extracts an ordered list of colors for a given shingle"
 end

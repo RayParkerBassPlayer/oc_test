@@ -18,10 +18,29 @@
   clear: both;
 }
 
-#swatches .selected{
-  border: 3px solid pink;
+.color-swatch{
+  float: left;
+  border: 4px solid transparent;
+  margin: 0 10px 10px 0;
 }
 
-#swatches :hover{
-  border: 3px solid hotpink;
+.color-swatch:hover{
+  cursor: pointer;
 }
+
+.color-swatch.selected{
+  border: 4px solid #f29bc1;
+  background-color: #f29bc1;
+}
+
+.color-swatch img{
+  height: 160px;
+  width: 160px;
+}
+
+.color-swatch .color-name{
+  text-align: center;
+  width: 160px;
+  clear: both;
+}
+

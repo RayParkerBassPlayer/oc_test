@@ -20,6 +20,10 @@ class ShingleConnection
         :zip => "43659"
     }
 
-    call_api(default_query.merge(query))
+    call_api(default_query.merge(query)).sort{|l, r| l["proper_name"] <=> r["proper_name"]}
+  end
+
+  def self.shingle_colors(shingle)
+    shingle["shingle_colors"].sort {|l, r| l["name"] <=> r["name"]}
   end
 end

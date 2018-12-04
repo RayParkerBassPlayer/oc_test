@@ -30,7 +30,7 @@ describe "Shingle Browsing Start State", :vcr do
     within("#swatches") do
       shingle_color = ShingleConnection.shingle_colors(shingles.first).first["swatch_160x160_url"]
 
-      expect(find("img.selected")["src"]).to eq shingle_color
+      expect(find(".color-swatch.selected > img")["src"]).to eq shingle_color
     end
   end
 end

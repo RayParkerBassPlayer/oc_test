@@ -1,0 +1,19 @@
+- main_image_key = "house_thumb_image_url"
+- shingle_colors = ShingleConnection.shingle_colors(@current_shingle)
+
+#shingle-name
+  = @current_shingle["proper_name"]
+
+#main-image-container
+  #main-image
+    = image_tag(@current_color[main_image_key], :id => "main-image-tag")
+
+  #shingle-selector
+    Select Shingle for Preview
+    = select_tag("shingle-names", options_for_select(@shingles.collect{|shingle| [shingle["proper_name"], shingle["uid"]]}, :selected => @current_shingle["uid"]))
+
+#swatches
+  - shingle_colors.each do |color|
+    .color-swatch{:class => (color["name"] == @current_color["name"] ? :selected : nil), "data-large-image-url" => color[main_image_key]}
+      = image_tag(color["swatch_160x160_url"], "data-color-id" => color["uid"], :alt => color["name"])
+      .color-name= color["name"]

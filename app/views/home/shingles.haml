@@ -12,6 +12,15 @@
     Select Shingle for Preview
     = select_tag("shingle-names", options_for_select(@shingles.collect{|shingle| [shingle["proper_name"], shingle["uid"]]}, :selected => @current_shingle["uid"]))
 
+  #zip-selector
+    Enter Zip Code for Availability in Your Area
+    = form_tag(shingle_zip_updated_path) do
+      = text_field_tag(:zip, @current_zip.code)           
+      = hidden_field_tag(:shingle, @current_shingle["uid"])
+      = hidden_field_tag(:color, @current_color["uid"])
+      = submit_tag("Set Zip Code")
+      
+
 #swatches
   - shingle_colors.each do |color|
     .color-swatch{:class => (color["name"] == @current_color["name"] ? :selected : nil), "data-large-image-url" => color[main_image_key]}

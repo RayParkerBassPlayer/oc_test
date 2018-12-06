@@ -2,7 +2,14 @@ $(function () {
   let largeImageUrl = $("#main-image-tag").attr("src");
 
   $("#shingle-names").change(function () {
-    window.location.replace("/shingles/" + $("#shingle-names").val());
+    // Skipping color as new shingle may not have that color
+    let shingleUid = $("#shingle-names").val();
+    let zip = $("#zip").val();
+
+    if(zip)
+      window.location.replace("/shingles_by_zip/" + zip + "/" + shingleUid);
+    else
+      window.location.replace("/shingles/" + shingleUid);
   });
 
   $(function () {
@@ -17,6 +24,11 @@ $(function () {
   $(".color-swatch").click(function(){
     let shingleUid = $("#shingle-names").val();
     let colorUid = $(this).children("img").data("colorId");
-    window.location.replace("/shingles/" + shingleUid + "/" + colorUid);
+    let zip = $("#zip").val();
+
+    if(zip)
+      window.location.replace("/shingles_by_zip/" + zip + "/" + shingleUid + "/" + colorUid);
+    else
+      window.location.replace("/shingles/" + shingleUid + "/" + colorUid);
   });
 });

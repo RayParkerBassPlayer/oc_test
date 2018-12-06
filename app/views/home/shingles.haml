@@ -19,7 +19,9 @@
       = hidden_field_tag(:shingle, @current_shingle["uid"])
       = hidden_field_tag(:color, @current_color["uid"])
       = submit_tag("Set Zip Code")
-      
+  
+  #utilities
+    = mail_to nil, "Mail this page to a friend.", :body => request.original_url, :subject => "Check Out These Shingles!"             
 
 #swatches
   - shingle_colors.each do |color|

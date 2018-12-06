@@ -1,12 +1,14 @@
 class Favorite < ApplicationRecord
   validates :ip, :presence => true
   validates :url, :presence => true, :uniqueness => {:scope => :ip}
+  validates :shingle, :uniqueness => {:scope => [:ip, :color]}
 
-  def self.add(url, ip)
+  # Options are
+  def self.add(url, ip, options = {})
     begin
-      create!(:url => url, :ip => ip)
+      create!(options.merge(:url => url, :ip => ip))
     rescue => e
-      if e.message != "Validation failed: Url has already been taken"
+      if !e.message.match?("has already been taken")
         raise e
       end
     end

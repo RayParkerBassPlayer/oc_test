@@ -1,5 +1,5 @@
 module SiteSpecUtils
-  def log_in(user = nil)
+  def log_in(user_name, password)
     visit admin_root_path
 
     fill_in :user_name, :with => user_name

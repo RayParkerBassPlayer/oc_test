@@ -3,7 +3,7 @@ module Admin
     skip_before_action :user_logged_in?,  :only => [:index, :log_in]
 
     def index
-      a = 9
+
     end
 
     def log_in

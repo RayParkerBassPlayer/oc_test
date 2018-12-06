@@ -1,0 +1,17 @@
+%h1 Owens Corning Developer Test Admin Portal
+
+
+- if current_user?
+  = link_to("All Favorite Entries")
+  = link_to("All Favorite Totals")
+  = link_to("Log Out", admin_reporting_logout_path)
+- else
+  = form_tag admin_reporting_login_path do
+    %fieldset
+      User Name
+      = text_field_tag(:user_name, @user_name)
+    %fieldset
+      Password
+      = password_field_tag(:password)
+    %span Hint:  User name is 'admin'.  The password is just the opposite. </br>
+    = submit_tag("Log In")

@@ -5,5 +5,13 @@ Rails.application.routes.draw do
   get "/shingles/(:shingle)/(:color)", :to => "home#shingles", :as => :shingles
   get "/shingles_by_zip/:zip/(:shingle)/(:color)", :to => "home#shingles", :as => :shingles_by_zip
 
+  namespace :admin do
+    get "/reporting", :to => "reporting#index", :as => :reporting
+    post "/log_in", :to => "reporting#log_in", :as => :reporting_login
+    get "/log_out", :to => "reporting#log_out", :as => :reporting_logout
+
+    root :to => "reporting#index"
+  end
+
   root :to => "home#shingles"
 end

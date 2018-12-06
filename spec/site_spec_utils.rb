@@ -1,14 +1,16 @@
 module SiteSpecUtils
   def log_in(user = nil)
-    user ||= create(:user)
-    visit root_path
-    click_link "Log In"
+    visit admin_root_path
 
-    fill_in "email", :with => user.email
-    fill_in "password", :with => user.password
-    click_button "Log In!"
+    fill_in :user_name, :with => user_name
+    fill_in :password, :with => password
 
-    user
+    click_button "Log In"
+  end
+
+  def log_out
+    visit admin_root_path
+    click_link "Log Out"
   end
 
   def valid_password

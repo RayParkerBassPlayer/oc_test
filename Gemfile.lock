@@ -78,8 +78,12 @@ GEM
     erubi (1.7.1)
     erubis (2.7.0)
     execjs (2.7.0)
-    faker (1.9.1)
-      i18n (>= 0.7)
+    factory_bot (4.11.1)
+      activesupport (>= 3.0.0)
+    factory_bot_rails (4.11.1)
+      factory_bot (~> 4.11.1)
+      railties (>= 3.0.0)
+    ffaker (2.10.0)
     ffi (1.9.25)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -259,7 +263,8 @@ DEPENDENCIES
   capybara-selenium
   coffee-rails (~> 4.2)
   database_cleaner
-  faker
+  factory_bot_rails
+  ffaker
   haml-rails
   httparty
   jbuilder (~> 2.5)

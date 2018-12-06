@@ -35,14 +35,14 @@ class HomeController < ApplicationController
   end
 
   def page_favorited
-    Favorite.add(params[:url], request.ip)
+    Favorite.add(params[:url], request.ip, :color => params[:color], :shingle => params[:shingle])
     Rails.logger.info("#{params[:url]} favorited.")
 
     render :plain => "OK"
   end
 
   def page_unfavorited
-    Favorite.find_by(:url => params[:url], :ip => request.ip).destroy
+    Favorite.find_by(:url => params[:url], :ip => request.ip, :color => params[:color], :shingle => params[:shingle]).destroy
     Rails.logger.info("#{params[:url]} unfavorited.")
 
     render :plain => "OK"

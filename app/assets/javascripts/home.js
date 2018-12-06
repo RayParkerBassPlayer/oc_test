@@ -42,7 +42,7 @@ $(function () {
     $("#unfavorite-link").toggle();
     $(this).toggle();
 
-    $.post("/shingles/page_favorited", {url: window.location.pathname});
+    $.post("/shingles/page_favorited", {url: window.location.pathname, shingle: $("#shingle-uid-tag").val(), color: $("#color-uid-tag").val()});
 
     return false;
   });
@@ -51,7 +51,7 @@ $(function () {
     $("#favorite-link").toggle();
     $(this).toggle();
 
-    $.post("/shingles/page_unfavorited", {url: window.location.pathname});
+    $.post("/shingles/page_unfavorited", {url: window.location.pathname, shingle: $("#shingle-uid-tag").val(), color: $("#color-uid-tag").val()});
 
     return false;
   });

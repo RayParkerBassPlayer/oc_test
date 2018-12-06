@@ -35,3 +35,6 @@
     .color-swatch{:class => (color["name"] == @current_color["name"] ? :selected : nil), "data-large-image-url" => color[main_image_key]}
       = image_tag(color["swatch_160x160_url"], "data-color-id" => color["uid"], :alt => color["name"])
       .color-name= color["name"]
+
+= hidden_field_tag("shingle-uid-tag", @current_shingle["uid"])
+= hidden_field_tag("color-uid-tag", @current_color["uid"])

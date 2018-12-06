@@ -39,4 +39,18 @@ describe "Shingle Browsing Start State", :vcr do
 
     expect(page).to have_selector("#zip")
   end
+
+  describe "favoriting links" do
+    it "shows the favoriting link" do
+      visit root_path
+
+      expect(page).to have_selector("#favorite-link")
+    end
+
+    it "does not show the unfavoriting link" do
+      visit root_path
+
+      expect(page).not_to have_selector("un#favorite-link")
+    end
+  end
 end

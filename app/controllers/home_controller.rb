@@ -9,6 +9,8 @@ class HomeController < ApplicationController
     @current_zip = Zip.find("43659")
     default_zip = @current_zip
 
+    @favorited = Favorite.exists?(:url => request.path, :ip => request.ip)
+
     begin
       if params[:zip].present?
         @current_zip = Zip.find(params[:zip])
@@ -30,5 +32,19 @@ class HomeController < ApplicationController
     else
       redirect_to(shingles_path(params[:shingle], params[:color]))
     end
+  end
+
+  def page_favorited
+    Favorite.add(params[:url], request.ip)
+    Rails.logger.info("#{params[:url]} favorited.")
+
+    render :plain => "OK"
+  end
+
+  def page_unfavorited
+    Favorite.find_by(:url => params[:url], :ip => request.ip).destroy
+    Rails.logger.info("#{params[:url]} unfavorited.")
+
+    render :plain => "OK"
   end
 end

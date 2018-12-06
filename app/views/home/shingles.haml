@@ -21,7 +21,13 @@
       = submit_tag("Set Zip Code")
   
   #utilities
-    = mail_to nil, "Mail this page to a friend.", :body => request.original_url, :subject => "Check Out These Shingles!"             
+    = mail_to nil, "Mail this page to a friend.", :body => request.original_url, :subject => "Check Out These Shingles!"
+    #favorite-links              
+      = hidden_field_tag("favorited", @favorited)
+      %div{:id => "favorite-link"}
+        <a href="">Like this Page</a>             
+      %div{:id => "unfavorite-link"}
+        <a href="">Unlike this Page</a>             
     
 
 #swatches

@@ -9,6 +9,8 @@ Not a lot of time was spent on testing the resulting JS interface, but here are 
 * MySql was used for the unused database.  No Postgres install on my laptop at present.
 * Headless JS testing was set up using Selenium/Webkit.  A note below will help with setup if you're not set up for this.
 
+## Bonus Features
+* Zip code selection has now been implemented. 
 
 ### Setup 
 The chromedriver needs to be installed to be able to run the tests.  If you're running HomeBrew, the following is all that you should have to do outside of a normal Rails app installation. 

@@ -6,7 +6,7 @@ Not a lot of time was spent on testing the resulting JS interface, but here are 
 * The lower level stuff was mainly test-driven after some R & D
 * The basic page was test-driven until Javascript got involved and then it was pure R&D type development.  Some specs were sketched in and would be completed before handing in the feature.  The resultant testing wouldn't be that interesting to you, was my thinking.
 * Implementation was driven toward a known preference for REST preference at OC with a nod toward some of the bonus questions.
-* MySql was used for the unused database.  No Postgres install on my laptop at present.
+* MySql was used for database.  No Postgres install on my laptop at present.
 * Headless JS testing was set up using Selenium/Webkit.  A note below will help with setup if you're not set up for this.
 
 ## Bonus Features

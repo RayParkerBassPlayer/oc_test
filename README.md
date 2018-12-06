@@ -12,7 +12,7 @@ Not a lot of time was spent on testing the resulting JS interface, but here are 
 ## Bonus Features
 * Zip code selection has now been implemented. 
 * Email a link to the shingle link added.
-
+* URL is already RESTful, so bookmarking the links is easy.  There is no universal way to bookmark the page automagically from the page as all browers (Chrome, in particular) don't allow this.  A normal user bookmarking of the page is the best that can be offered.
 
 ### Setup 
 The chromedriver needs to be installed to be able to run the tests.  If you're running HomeBrew, the following is all that you should have to do outside of a normal Rails app installation. 

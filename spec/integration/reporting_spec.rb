@@ -7,32 +7,24 @@ describe "Reporting Dashboard" do
   it "shows log in form when logged out" do
     visit admin_root_path
 
-    expect(page).to have_selector("#user_name")
-    expect(page).to have_selector("#password")
+    expect(page).to have_selector("#log-in-form")
   end
 
   it "does not show log in form when logged in" do
     log_in
 
-    expect(page).not_to have_selector("#user_name")
-    expect(page).not_to have_selector("#password")
+    expect(page).not_to have_selector("#log-in-form")
   end
 
   it "shows log in form after logging out" do
     visit admin_root_path
-
-    expect(page).to have_selector("#user_name")
-    expect(page).to have_selector("#password")
+    expect(page).to have_selector("#log-in-form")
 
     log_in
-
-    expect(page).not_to have_selector("#user_name")
-    expect(page).not_to have_selector("#password")
+    expect(page).not_to have_selector("#log-in-form")
 
     log_out
-
-    expect(page).to have_selector("#user_name")
-    expect(page).to have_selector("#password")
+    expect(page).to have_selector("#log-in-form")
   end
 
   it "lists all of the favorite entries" do

@@ -6,7 +6,7 @@
   = link_to("All Favorite Totals")
   = link_to("Log Out", admin_reporting_logout_path)
 - else
-  = form_tag admin_reporting_login_path do
+  = form_tag admin_reporting_login_path, :id => "log-in-form" do
     %fieldset
       User Name
       = text_field_tag(:user_name, @user_name)

@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe "Reporting Dashboard" do
+describe "Admin Login" do
   let(:user_name){"admin"}
   let(:password){"nimda"}
 

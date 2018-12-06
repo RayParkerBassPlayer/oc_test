@@ -33,4 +33,10 @@ describe "Shingle Browsing Start State", :vcr do
       expect(find(".color-swatch.selected > img")["src"]).to eq shingle_color
     end
   end
+
+  it "shows a zip code selector" do
+    visit root_path
+
+    expect(page).to have_selector("#zip")
+  end
 end

@@ -14,10 +14,4 @@ describe "Shingle Browser", :js, :vcr do
       expect(find("#shingle-name").text).to eq shingle_to_view
     end
   end
-
-  describe "color selection" do
-    it "shows the selected swatch as being selected"
-    it "updates the main shingle image on mouse hover over color"
-    it "updates the main shingle image on color selection"
-  end
 end

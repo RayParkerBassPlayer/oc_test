@@ -79,4 +79,8 @@ module SiteSpecUtils
     puts
   end
   alias_method :dpw, :debug_print_wrapper
+
+  def default_zip
+    Zip.find("43659")
+  end
 end

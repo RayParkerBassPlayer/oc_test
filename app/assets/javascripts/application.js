@@ -14,3 +14,7 @@
 //= require activestorage
 //= require jquery
 //= require_tree .
+
+$(function(){
+  $(".flash-message").fadeOut(4000);
+});

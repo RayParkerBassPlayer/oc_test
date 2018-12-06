@@ -11,6 +11,8 @@ Not a lot of time was spent on testing the resulting JS interface, but here are 
 
 ## Bonus Features
 * Zip code selection has now been implemented. 
+* Email a link to the shingle link added.
+
 
 ### Setup 
 The chromedriver needs to be installed to be able to run the tests.  If you're running HomeBrew, the following is all that you should have to do outside of a normal Rails app installation. 

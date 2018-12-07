@@ -16,14 +16,12 @@ $(function () {
     }
   });
 
-  $(function () {
-    $(".color-swatch").hover(function () {
-          $("#main-image-tag").attr("src", $(this).data("largeImageUrl"));
-        }, function () {
-          $("#main-image-tag").attr("src", largeImageUrl);
-        }
-    )
-  });
+  $(".color-swatch").hover(function () {
+        $("#main-image-tag").attr("src", $(this).data("largeImageUrl"));
+      }, function () {
+        $("#main-image-tag").attr("src", largeImageUrl);
+      }
+  );
 
   $(".color-swatch").click(function () {
     let shingleUid = $("#shingle-names").val();
@@ -42,7 +40,11 @@ $(function () {
     $("#unfavorite-link").toggle();
     $(this).toggle();
 
-    $.post("/shingles/page_favorited", {url: window.location.pathname, shingle: $("#shingle-uid-tag").val(), color: $("#color-uid-tag").val()});
+    $.post("/shingles/page_favorited", {
+      url: window.location.pathname,
+      shingle: $("#shingle-uid-tag").val(),
+      color: $("#color-uid-tag").val()
+    });
 
     return false;
   });
@@ -51,7 +53,11 @@ $(function () {
     $("#favorite-link").toggle();
     $(this).toggle();
 
-    $.post("/shingles/page_unfavorited", {url: window.location.pathname, shingle: $("#shingle-uid-tag").val(), color: $("#color-uid-tag").val()});
+    $.post("/shingles/page_unfavorited", {
+      url: window.location.pathname,
+      shingle: $("#shingle-uid-tag").val(),
+      color: $("#color-uid-tag").val()
+    });
 
     return false;
   });

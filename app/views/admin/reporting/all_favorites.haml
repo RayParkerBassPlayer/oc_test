@@ -1,0 +1,14 @@
+%table
+  %tr
+    %th ID
+    %th URL
+    %th IP
+    %th Shingle
+    %th Color
+  - @favorites.each do |fave|
+    %tr{:id => "favorite_#{fave.id}"}
+      %td= fave.id
+      %td= fave.url
+      %td= fave.ip
+      %td= fave.shingle
+      %td= fave.color

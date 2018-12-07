@@ -17,5 +17,13 @@ module Admin
 
       redirect_to admin_reporting_path
     end
+
+    def all_favorites
+      @favorites = Favorite.order(:created_at => :desc).all
+    end
+
+    def favorite_totals
+      @favorites = Favorite.order(:shingle, :color).group(:shingle, :color).count
+    end
   end
 end

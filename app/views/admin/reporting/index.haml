@@ -3,8 +3,8 @@
 - if current_user?
   %h3 Activities
   %ul
-    %li= link_to("All Favorite Entries")
-    %li= link_to("All Favorite Totals")
+    %li= link_to("All Favorite Entries", admin_shingles_all_favorites_path)
+    %li= link_to("All Favorite Totals", admin_shingles_favorite_totals_path)
     %li= link_to("Log Out", admin_reporting_logout_path)
 - else
   = form_tag admin_reporting_login_path, :id => "log-in-form" do

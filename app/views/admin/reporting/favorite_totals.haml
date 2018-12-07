@@ -1,0 +1,11 @@
+%table
+  %tr
+    %th Shingle
+    %th Color
+    %th Count
+  - @favorites.each do |fave|
+    %tr{:id => "favorite_#{fave[0][0]}_#{fave[0][1]}"}
+      %td= fave[0][0] || "Nil"
+      %td= fave[0][1] || "Nil"
+      %td= fave[1]
+

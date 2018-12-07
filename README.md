@@ -15,7 +15,7 @@ Not a lot of time was spent on testing the resulting JS interface, but here are 
 * URL is already RESTful, so bookmarking the links is easy.  There is no universal way to bookmark the page automagically from the page as all browers (Chrome, in particular) don't allow this.  A normal user bookmarking of the page is the best that can be offered.
 * Favoriteering of a page installed.  This is based on IP and URL.  Not the best measure, but saves to user having to log in to 'favorite' a page.  If a requirement came down the pike that a user should be able to view his favorites a login would likely have to be added. 
 * An admin login created.  Visit http://localhost:3000/admin to access it.  The username and password are hinted at, just to take the opportunity to trade puzzles.
-* Two reports added, one that lists all favorites and one that has totals.   
+* Two reports added, one that lists all favorites and one that has totals.  I'm uncertain what 'edit the counter numbers' really means, so listing is what was done.   
 
 ### Setup
 * After install and **db:create**, make sure to run **db:seed** to get static tables populated. 

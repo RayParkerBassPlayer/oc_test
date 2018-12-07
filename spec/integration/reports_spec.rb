@@ -18,10 +18,4 @@ describe "Reports" do
     end
     
   end
-
-  it "lists all of the favorited urls with totals" do
-    log_in(user_name, password)
-
-    click_link "All Favorite Totals"
-  end
 end

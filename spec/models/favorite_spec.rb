@@ -18,9 +18,8 @@ describe Favorite do
     end
 
     it "silently allows a duplicate like to be added, but not stored" do
-      favorite = build(:favorite)
+      favorite = create(:favorite)
 
-      expect{Favorite.add(favorite.url, favorite.ip, :shingle => favorite.shingle, :color => favorite.color)}.to change{Favorite.count}.by(1)
       expect{Favorite.add(favorite.url, favorite.ip, :shingle => favorite.shingle, :color => favorite.color)}.to change{Favorite.count}.by(0)
     end
   end

@@ -13,7 +13,7 @@ describe Favorite do
   describe "favoriting", :vcr do
     it "stows an url and the favoriteer's ip" do
       favorite = build(:favorite)
-      dp favorite
+
       expect{Favorite.add(favorite.url, favorite.ip, :shingle => favorite.shingle, :color => favorite.color)}.to change{Favorite.count}.by(1)
     end
 

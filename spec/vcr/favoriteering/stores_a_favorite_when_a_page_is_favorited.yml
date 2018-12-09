@@ -3483,4 +3483,79 @@ http_interactions:
       string: '70339361909440'
     http_version: 
   recorded_at: Thu, 06 Dec 2018 22:56:20 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:57258/__identify__
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '14'
+    body:
+      encoding: UTF-8
+      string: '70295485207660'
+    http_version: 
+  recorded_at: Sat, 08 Dec 2018 16:08:14 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:57586/__identify__
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '14'
+    body:
+      encoding: UTF-8
+      string: '70183798513080'
+    http_version: 
+  recorded_at: Sat, 08 Dec 2018 16:08:44 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:57916/__identify__
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '14'
+    body:
+      encoding: UTF-8
+      string: '70339169282460'
+    http_version: 
+  recorded_at: Sat, 08 Dec 2018 16:10:15 GMT
 recorded_with: VCR 4.0.0

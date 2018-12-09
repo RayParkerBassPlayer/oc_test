@@ -66,8 +66,6 @@ $(function () {
 function initializeFavoriteLink() {
   let favorited = $("#favorited").val();
 
-  console.log(favorited);
-
   if (favorited == "true") {
     $("#favorite-link").toggle();
   }
